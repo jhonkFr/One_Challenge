@@ -55,6 +55,6 @@ Este proyecto es un encriptador y desencriptador de texto desarrollado como part
 ## Desarrollador
 
 - Jhon Kevin Flores Rojas
-- GitHub: [tjhonk](https://github.com/tjhonk)
+- GitHub: [jhonkfr](https://github.com/jhonkfr)
 
 Este proyecto es parte del challenge ONE (Oracle Next Education).
