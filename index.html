@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encriptador/Desencriptador</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="title-container">
+      <h1>Encriptador de Texto</h1>
+      <hr />
+    </header>
+    <main>
+      <div class="container">
+        <div class="tab-container">
+          <button class="tab-button active" data-tab="encrypt">
+            Encriptar
+          </button>
+          <button class="tab-button" data-tab="decrypt">Desencriptar</button>
+        </div>
+
+        <div class="content-container">
+          <div class="input-column">
+            <textarea
+              id="input-text"
+              placeholder="Ingrese el texto aquí"
+            ></textarea>
+            <div class="button-group">
+              <button id="action-button">Encriptar / Guardar</button>
+              <button id="paste-button">Pegar texto copiado</button>
+            </div>
+          </div>
+
+          <div class="result-column">
+            <textarea
+              id="result-text"
+              readonly
+              placeholder="Texto Resultante"
+            ></textarea>
+            <button id="copy-button">Copiar</button>
+          </div>
+        </div>
+        <div class="history-container">
+          <h2>Historial</h2>
+          <select id="history-dropdown" class=".hidden">
+            <option value="">Seleccionar...</option>
+          </select>
+        </div>
+        <p id="copy-message" class="copy-message"></p>
+      </div>
+      <script src="script.js"></script>
+    </main>
+    <footer>
+      <div class="footer-content">
+        <p>Jhon Kevin Flores Rojas</p>
+        <p>
+          <a href="https://github.com/tjhonk" target="_blank">GitHub: tjhonk</a>
+        </p>
+        <p>challenge_ONE</p>
+      </div>
+    </footer>
+  </body>
+</html>
