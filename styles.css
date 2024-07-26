@@ -12,7 +12,7 @@
     --silver: #abb3d1;
 
     --header-height:100px;
-    --footer-height: 50px;
+    --footer-height: 10px;
 
 }
 
@@ -27,11 +27,16 @@ header{
     padding: 20px;
     margin: auto;
     max-width: 1300px;
+    height: fit-content;
 }
 
 body {
     font-family: "Nunito Sans", Roboto, sans-serif;;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: max-content;
     /* font-size: large; */
 
     font-size: 16px;
@@ -45,12 +50,12 @@ body {
 
 body, main{
     margin: 0;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 main {
     min-height: calc(93vh - var(--header-height) - var(--footer-height));
-
+padding: 20px;
   }
 
 .container {
@@ -86,9 +91,7 @@ main {
     
 }
 
-.title-container{
-    margin-bottom: 20px;
-}
+
 .content-container {
     display: flex;
     gap: 20px;
@@ -186,6 +189,7 @@ footer {
     color: white;
     padding: 10px 0;
     width: 100%;
+
     font-size: 10px;
 }
 
@@ -209,4 +213,11 @@ footer {
 
 .footer-content a:hover {
     text-decoration: underline;
+}
+.checkbox-container {
+    margin-bottom: 10px;
+}
+
+.checkbox-container input {
+    margin-right: 5px;
 }
