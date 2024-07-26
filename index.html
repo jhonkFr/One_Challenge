@@ -15,10 +15,16 @@
   <body>
     <header class="title-container">
       <h1>Encriptador de Texto</h1>
-      <hr />
+      <!-- <hr /> -->
     </header>
     <main>
       <div class="container">
+        <div class="checkbox-container">
+          <input type="checkbox" id="keep-format" />
+          <label for="keep-format"
+            >Mantener mayúsculas y caracteres especiales</label
+          >
+        </div>
         <div class="tab-container">
           <button class="tab-button active" data-tab="encrypt">
             Encriptar
@@ -47,13 +53,13 @@
             <button id="copy-button">Copiar</button>
           </div>
         </div>
+        <p id="copy-message" class="copy-message"></p>
         <div class="history-container">
           <h2>Historial</h2>
           <select id="history-dropdown" class=".hidden">
             <option value="">Seleccionar...</option>
           </select>
         </div>
-        <p id="copy-message" class="copy-message"></p>
       </div>
       <script src="script.js"></script>
     </main>
@@ -61,7 +67,7 @@
       <div class="footer-content">
         <p>Jhon Kevin Flores Rojas</p>
         <p>
-          <a href="https://github.com/jhonkfr" target="_blank">GitHub: jhonkfr</a>
+          <a href="https://github.com/tjhonk" target="_blank">GitHub: tjhonk</a>
         </p>
         <p>challenge_ONE</p>
       </div>
