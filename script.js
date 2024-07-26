@@ -1,16 +1,18 @@
 const encryptorMap = { a: "ai", e: "enter", i: "imes", o: "ober", u: "ufat" };
+// const encryptorMap = { a: "ai", e: "enter", i: "imes", o: "ober", u: "ufat" };
 const decryptorMap = Object.fromEntries(
   Object.entries(encryptorMap).map(([k, v]) => [v, k])
 );
 
 const inputText = document.getElementById("input-text");
 const resultText = document.getElementById("result-text");
-const actionButton = document.getElementById("action-button");
+const actionButton = document.getElementById("action-button"); //Encriptar y descriptar /// guardar
 const copyButton = document.getElementById("copy-button");
 const historyDropdown = document.getElementById("history-dropdown");
 const tabButtons = document.querySelectorAll(".tab-button");
 const copyMessage = document.getElementById("copy-message");
 const pasteButton = document.getElementById("paste-button");
+const keepFormatCheck = document.getElementById("keep-format");
 
 let currentMode = "encrypt";
 let encryptHistory = [];
@@ -73,6 +75,10 @@ function performAction() {
   resultText.value = output;
   updateHistory(input);
   copyToClipboard();
+  if (currentMode === "encrypt") {
+    inputText.value = "";
+    resultText.value = "";
+  }
 }
 
 async function pasteFromClipboard() {
@@ -99,7 +105,23 @@ function showCopyMessage() {
 }
 
 function processInputRealTime() {
-  const input = inputText.value;
+  let input = inputText.value;
+  // if (!keepFormatCheck.checked) {
+  //   const allowCharacters = /[a-z\s]/g;
+  //   const specialCharsRegex = /[A-ZÑÁÉÍÓÚÜñáéíóúü]/g; //chatgpt
+  //   // if (specialCharsRegex.test(input)) {
+  //   //   alert(
+  //   //     "No se permiten mayúsculas, acentos ni caracteres especiales. Puedes considerar marcar el checkbox 'Mantener mayúsculas y caracteres especiales' para omitir esta alerta"
+  //   //   );
+  //   //   return;
+  //   // }
+  //   if (!allowCharacters.test(input)) {
+  //     input = "";
+  //     alert(
+  //       "No se permiten mayúsculas, acentos ni caracteres especiales. Puedes considerar marcar el checkbox 'Mantener mayúsculas y caracteres especiales' para omitir esta alerta"
+  //     );
+  //   }
+  // }
   let output;
   if (currentMode === "encrypt") {
     output = encrypt(input);
@@ -111,6 +133,17 @@ function processInputRealTime() {
 
 actionButton.addEventListener("click", performAction);
 
+inputText.addEventListener("beforeinput", function (event) {
+  if (!keepFormatCheck.checked) {
+    const allowedCharsRegex = /[a-z\s]/;
+    if (!allowedCharsRegex.test(event.data)) {
+      alert(
+        "No se permiten mayúsculas, acentos ni caracteres especiales. Puedes considerar marcar el checkbox 'Mantener mayúsculas y caracteres especiales' para omitir esta alerta"
+      );
+      event.preventDefault();
+    }
+  }
+});
 inputText.addEventListener("input", processInputRealTime);
 
 copyButton.addEventListener("click", copyToClipboard);
